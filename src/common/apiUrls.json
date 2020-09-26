@@ -1,0 +1,6 @@
+{
+    "urls": {
+        "search": "https://api.mercadolibre.com/sites/MLA/search",
+        "items": "https://api.mercadolibre.com/items"
+    }
+}
