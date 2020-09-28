@@ -21,9 +21,10 @@ function parseItemsResults(itemsJson){
 }
 
 function parseItems(itemsArr) {
-    return _map(itemsArr, ({id, title, currency_id, price, thumbnail, condition, shipping})=>{
+    return _map(itemsArr, ({id, title, currency_id, price, thumbnail, condition, shipping, address})=>{
         const getDecimals = price % 1;
         const getShipping = _get(shipping, "free_shipping");
+        const location = _get(address, "state_name");
         return {
             id,
             title,
@@ -34,7 +35,8 @@ function parseItems(itemsArr) {
             },
             picture: thumbnail,
             condition,
-            free_shipping: getShipping
+            free_shipping: getShipping,
+            location
         }
     });
 }
